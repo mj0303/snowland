@@ -1,0 +1,33 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+.snow-container {
+   position: relative;
+   width: 100vw;
+   height: 100vh;
+   background: #2c3760;
+   overflow: hidden;
+}
+
+i {
+   position: absolute;
+   border-radius: 50%;
+   animation: snowing linear infinite;
+}
+
+@keyframes snowing {
+   0% {
+      transform: translateY(-15px);
+   }
+   100% {
+      transform: translateY(calc(100vh + 15px));
+   }
+}
+
+.mountain {
+   position: relative;
+   bottom: 0;
+   background: #0C244D;
+}
