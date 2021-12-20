@@ -12,14 +12,15 @@ class App {
 
     // Create stars
     this.stars = [];
-    for(let i = 0; i < 15; i++) {
+    for(let i = 0; i < 30; i++) {
       this.stars.push(new Star(i, this.canvas.width, this.canvas.height / 4))
     }
 
     // Create static snows
     this.snows = [];
-    for(let i = 0; i< 30; i++) {
-      this.snows.push(new Snow(i, this.canvas.width, this.canvas.height));
+    this.vector = [-4,-3,-2,-1,1,2,3,4]
+    for(let i = 0; i< 150; i++) {
+      this.snows.push(new Snow(i, this.canvas.width, this.canvas.height, this.vector));
     }
 
     window.requestAnimationFrame(this.animate.bind(this))
@@ -32,7 +33,6 @@ class App {
   
   animate(t) {
     window.requestAnimationFrame(this.animate.bind(this));
-
     // set background color
     this.backgroundColor = this.ctx.createLinearGradient(0, 0, 0, window.innerWidth);
     this.backgroundColor.addColorStop(0, "#232256");
@@ -42,18 +42,12 @@ class App {
 
     // Draw Snows~~
     for(let snow of this.snows) {
-      this.ctx.beginPath();
-      this.ctx.fillStyle = snow.color;
-      this.ctx.arc(snow.x, snow.y, snow.radius, 0, Math.PI * 2);
-      this.ctx.fill();
+      snow.draw(this.ctx, snow, this.canvas.width, this.canvas.height);
     }
 
     // Draw Stars
     for(let star of this.stars) {
-      this.ctx.beginPath();
-      this.ctx.fillStyle = star.color;
-      this.ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      this.ctx.fill();
+      star.draw(this.ctx, star);
     }
   }
 }
