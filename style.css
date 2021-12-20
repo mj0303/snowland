@@ -1,4 +1,5 @@
 * {
+   user-select: none;
    outline: none;
    margin: 0;
    padding: 0;
@@ -10,4 +11,6 @@ html, body, canvas {
 
 body {
    overflow: hidden;
+   /* window resize시 화면이 흰색 으로 반짝거려 눈이 아픈거를 막기 위해 */
+   background: linear-gradient(#232256, #143778);
 }

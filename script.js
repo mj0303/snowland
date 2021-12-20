@@ -1,5 +1,6 @@
 import {Snow} from './snow.js';
 import {Star} from './star.js';
+import {Ground} from './ground.js';
 
 class App {
   constructor() {
@@ -10,13 +11,16 @@ class App {
     window.addEventListener("resize", this.resize.bind(this));
     this.resize();
 
+    // Create ground
+    this.ground = new Ground();
+    
     // Create stars
     this.stars = [];
     for(let i = 0; i < 30; i++) {
       this.stars.push(new Star(i, this.canvas.width, this.canvas.height / 4))
     }
 
-    // Create static snows
+    // Create snows
     this.snows = [];
     this.vector = [-4,-3,-2,-1,1,2,3,4]
     for(let i = 0; i< 150; i++) {
@@ -44,10 +48,13 @@ class App {
     for(let snow of this.snows) {
       snow.draw(this.ctx, snow, this.canvas.width, this.canvas.height);
     }
+    
+    // Draw Ground
+    this.ground.draw(this.ctx, this.canvas.width, this.canvas.height);
 
     // Draw Stars
     for(let star of this.stars) {
-      star.draw(this.ctx, star);
+      star.draw(this.ctx, star, this.canvas.width, this.canvas.height/4);
     }
   }
 }
