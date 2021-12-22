@@ -15,8 +15,8 @@ export class Snow {
       // 🔥(-4 + Math.floor(Math.random() * 9)) == 0 ? 1 : -4 + Math.floor(Math.random() * 9);
       // 위 값이 자꾸 0이 되기도 하는데 해결을 못해서 일단 배열로 줌
       // 원인 알면 나중에 고치자
-      this.vx = vector[Math.floor(Math.random() * 8)]
-      this.vy = vector[Math.floor(Math.random() * 8)]
+      this.vx = vector[Math.floor(Math.random() * vector.length)]
+      this.vy = vector[Math.floor(Math.random() * vector.length)]
    }
    
    draw(ctx, snow, stageWidth, stageHeight) {

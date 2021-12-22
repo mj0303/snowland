@@ -22,8 +22,8 @@ class App {
 
     // Create snows
     this.snows = [];
-    this.vector = [-4,-3,-2,-1,1,2,3,4]
-    for(let i = 0; i< 150; i++) {
+    this.vector = [-2,-1,1,2]
+    for(let i = 0; i< 200; i++) {
       this.snows.push(new Snow(i, this.canvas.width, this.canvas.height, this.vector));
     }
 
@@ -48,7 +48,7 @@ class App {
     for(let snow of this.snows) {
       snow.draw(this.ctx, snow, this.canvas.width, this.canvas.height);
     }
-    
+
     // Draw Ground
     this.ground.draw(this.ctx, this.canvas.width, this.canvas.height);
 
